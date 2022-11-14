@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>戰場模擬</title>
+    <style>
+        .UiRect{
+            width:fit-content;
+            border: 2px #999999 solid;
+            border-radius: 10px;
+            background-color: #dddddd;
+            float: left;
+            margin: 4px;
+        }
+        .UiButton{
+            margin: 4px;
+            font-size: 12;
+            color: #EEEEEE;
+            background-color: #333333;
+        }
+        .InputText{
+            margin: 4px;
+            width: 200px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="UiRect">
+        <button type="button" id="zoom_in_button" class="UiButton">放大+</button>
+        <button type="button" id="zoom_out_button" class="UiButton">縮小-</button>
+    </div>
+    <div class="UiRect">
+        <div class="UiRect">
+            種子碼<input placeholder="請輸入隨機種子碼(正整數)" id="random_seed_input" class="InputText">
+        </div>
+        <div class="UiRect">
+            地圖大小<input placeholder="請輸入地圖大小(正數)" id="map_size_input" class="InputText">
+        </div>
+        <div class="UiRect">
+            生成迭代次數<input placeholder="請輸入地圖迭代次數(正整數)" id="map_iteration_input" class="InputText">
+        </div>
+        <br>
+        <button type="button" id="build_random_map_button" class="UiButton">生成地圖</button>
+        <button type="button" id="random_input_button" class="UiButton">隨機輸入</button>
+    </div>
+    <script src = "./dist/main.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+import { GameInitializer, GameEvent } from "./gameEvent.js";
+import { test } from "./test.js";
+import * as mapBuilder from "./mapBuilder.js";
+import * as canvas from "./canvas.js";
+console.log("Program Start!");
+canvas.setAutoFitWindowEnable(true);
+let myMapBuilder;
+function main() {
+    test();
+    GameInitializer.initialize();
+    myMapBuilder = new mapBuilder.CircleMapBuilder(16, 3);
+    myMapBuilder.buildNewMap();
+    setInterval(GameEvent.triggerGameUpdate, 65);
+}
+main();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3NyYy9tYWluLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxlQUFlLEVBQUUsU0FBUyxFQUFFLE1BQU0sZ0JBQWdCLENBQUM7QUFFNUQsT0FBTyxFQUFFLElBQUksRUFBRSxNQUFNLFdBQVcsQ0FBQztBQUVqQyxPQUFPLEtBQUssVUFBVSxNQUFNLGlCQUFpQixDQUFDO0FBQzlDLE9BQU8sS0FBSyxNQUFNLE1BQU0sYUFBYSxDQUFDO0FBRXRDLE9BQU8sQ0FBQyxHQUFHLENBQUMsZ0JBQWdCLENBQUMsQ0FBQztBQUU5QixNQUFNLENBQUMsc0JBQXNCLENBQUMsSUFBSSxDQUFDLENBQUM7QUFFcEMsSUFBSSxZQUEwQyxDQUFDO0FBRS9DLFNBQVMsSUFBSTtJQUNULElBQUksRUFBRSxDQUFDO0lBQ1AsZUFBZSxDQUFDLFVBQVUsRUFBRSxDQUFDO0lBRTdCLFlBQVksR0FBRyxJQUFJLFVBQVUsQ0FBQyxnQkFBZ0IsQ0FBQyxFQUFFLEVBQUUsQ0FBQyxDQUFDLENBQUM7SUFDdEQsWUFBWSxDQUFDLFdBQVcsRUFBRSxDQUFDO0lBRTNCLFdBQVcsQ0FBRSxTQUFTLENBQUMsaUJBQWlCLEVBQUUsRUFBRSxDQUFFLENBQUM7QUFDbkQsQ0FBQztBQUVELElBQUksRUFBRSxDQUFDIn0=

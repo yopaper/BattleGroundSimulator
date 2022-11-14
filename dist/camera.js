@@ -1,0 +1,65 @@
+import { WorldPosition, CameraPosition } from "./position.js";
+import * as canvas from "./canvas.js";
+export var cameraPosition = new WorldPosition(0, 0);
+export var zoomRate = 1;
+let keyEnableTable = {
+    top: false, down: false, right: false, left: false
+};
+export function update() {
+    const keyToMoveCamera = () => {
+        let moveSpeed = 10;
+        if (keyEnableTable.top)
+            cameraMove(0, -moveSpeed);
+        if (keyEnableTable.down)
+            cameraMove(0, moveSpeed);
+        if (keyEnableTable.right)
+            cameraMove(moveSpeed, 0);
+        if (keyEnableTable.left)
+            cameraMove(-moveSpeed, 0);
+    };
+    keyToMoveCamera();
+}
+export function setZoomRate(rate) {
+    zoomRate = rate;
+}
+export function cameraMove(deltaX, deltaY) {
+    cameraPosition.move(deltaX, deltaY);
+}
+export function worldToCameraPosition(position) {
+    var centerPos = canvas.getCenter();
+    return new CameraPosition(centerPos.getX() + (position.getX() - cameraPosition.getX()) * zoomRate, centerPos.getY() + (position.getY() - cameraPosition.getY()) * zoomRate);
+}
+function createKeyToMoveCameraEvent() {
+    window.addEventListener("keydown", (event) => {
+        const enable = true;
+        if (event.key == "w" || event.key == "W") {
+            keyEnableTable.top = enable;
+        }
+        if (event.key == "s" || event.key == "S") {
+            keyEnableTable.down = enable;
+        }
+        if (event.key == "a" || event.key == "A") {
+            keyEnableTable.left = enable;
+        }
+        if (event.key == "d" || event.key == "D") {
+            keyEnableTable.right = enable;
+        }
+    });
+    window.addEventListener("keyup", (event) => {
+        const enable = false;
+        if (event.key == "w" || event.key == "W") {
+            keyEnableTable.top = enable;
+        }
+        if (event.key == "s" || event.key == "S") {
+            keyEnableTable.down = enable;
+        }
+        if (event.key == "a" || event.key == "A") {
+            keyEnableTable.left = enable;
+        }
+        if (event.key == "d" || event.key == "D") {
+            keyEnableTable.right = enable;
+        }
+    });
+}
+createKeyToMoveCameraEvent();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2FtZXJhLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vc3JjL2NhbWVyYS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsYUFBYSxFQUFFLGNBQWMsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUM5RCxPQUFPLEtBQUssTUFBTSxNQUFNLGFBQWEsQ0FBQztBQUV0QyxNQUFNLENBQUMsSUFBSSxjQUFjLEdBQW1CLElBQUksYUFBYSxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQztBQUVwRSxNQUFNLENBQUMsSUFBSSxRQUFRLEdBQVksQ0FBQyxDQUFDO0FBRWpDLElBQUksY0FBYyxHQUFHO0lBQ2pCLEdBQUcsRUFBQyxLQUFLLEVBQUUsSUFBSSxFQUFDLEtBQUssRUFBRSxLQUFLLEVBQUMsS0FBSyxFQUFFLElBQUksRUFBQyxLQUFLO0NBQ2pELENBQUM7QUFFRixNQUFNLFVBQVUsTUFBTTtJQUNsQixNQUFNLGVBQWUsR0FBRyxHQUFFLEVBQUU7UUFDeEIsSUFBSSxTQUFTLEdBQUcsRUFBRSxDQUFDO1FBQ25CLElBQUksY0FBYyxDQUFDLEdBQUc7WUFBRyxVQUFVLENBQUMsQ0FBQyxFQUFFLENBQUMsU0FBUyxDQUFDLENBQUM7UUFDbkQsSUFBSSxjQUFjLENBQUMsSUFBSTtZQUFHLFVBQVUsQ0FBQyxDQUFDLEVBQUUsU0FBUyxDQUFDLENBQUM7UUFDbkQsSUFBSSxjQUFjLENBQUMsS0FBSztZQUFHLFVBQVUsQ0FBQyxTQUFTLEVBQUUsQ0FBQyxDQUFDLENBQUM7UUFDcEQsSUFBSSxjQUFjLENBQUMsSUFBSTtZQUFHLFVBQVUsQ0FBQyxDQUFDLFNBQVMsRUFBRSxDQUFDLENBQUMsQ0FBQztJQUN4RCxDQUFDLENBQUE7SUFDRCxlQUFlLEVBQUUsQ0FBQztBQUN0QixDQUFDO0FBQ0QsTUFBTSxVQUFVLFdBQVcsQ0FBRSxJQUFXO0lBQ3BDLFFBQVEsR0FBRyxJQUFJLENBQUM7QUFDcEIsQ0FBQztBQUNELE1BQU0sVUFBVSxV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

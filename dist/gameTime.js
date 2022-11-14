@@ -1,0 +1,3 @@
+export const frameLength = 100;
+export const timeDelta = 1 / (1000 / frameLength);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2FtZVRpbWUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvZ2FtZVRpbWUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0EsTUFBTSxDQUFDLE1BQU0sV0FBVyxHQUFZLEdBQUcsQ0FBQztBQUV4QyxNQUFNLENBQUMsTUFBTSxTQUFTLEdBQVksQ0FBQyxHQUFDLENBQUMsSUFBSSxHQUFDLFdBQVcsQ0FBQyxDQUFDIn0=
